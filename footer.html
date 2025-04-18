@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="FOOTER.css">
+<style>
+/*--------------------------------------- footer------------------------------------------*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+    margin-top: 20px;
+}
+
+.subscribe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.subscribe input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+    text-align: center;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/732/732200.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 16px;
+    padding-left: 35px;
+}
+
+.subscribe button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.footer2 {
+    background-color: white;
+    padding: 40px 20px;
+    color: black;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-left {
+    max-width: 500px;
+}
+
+.footer-left img {
+    width: 120px;
+    display: block;
+}
+
+.footer-left p {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #666;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #999;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 150px;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+}
+
+.get-app {
+    text-align: center;
+}
+
+.get-app a {
+    display: inline-block;
+    margin: 5px;
+}
+
+.get-app img {
+    width: 120px;
+    display: block;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+
+
+    .subscribe {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .subscribe input, .subscribe button {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-section {
+        margin-top: 20px;
+    }
+    
+    .footer-left {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .get-app {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-left img {
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+<!----------------------------------------- footer------------------------------------------>
+    
+    <footer class="footer"> 
+        <h2>Subscribe to our Newsletter</h2>
+        <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+        <div class="subscribe">
+            <input type="email" placeholder="Enter your email">
+            <button>Subscribe</button>
+        </div>
+    </footer>
+   
+    <footer class="footer2">
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="public/logo-colored.svg" alt="Brand Logo">
+                <div style="font-size: 18px;width: 300px;;padding-right: 40px;
+    color: #999;">Best information about the company goes here But now lorem ipsum is.</div>
+               
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="far fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Find Store</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Partnership</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Find Store</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Money Refund</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>For Users</h4>
+                <ul>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">My Orders</a></li>
+                </ul>
+            </div>
+            <div class="footer-section get-app">
+                <h4>Get App</h4>
+                <a href="#"><img src="public/apple.png" alt="Download on the App Store"></a>
+                <a href="#"><img src="public/google.png" alt="Get it on Google Play"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2023 Ecommerce.
+        </div>
+    </footer>
+
+</body>
+</html>

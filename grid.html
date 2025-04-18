@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>page3</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-select-country/dist/css/bootstrap-select-country.min.css">
+
+  <script src="https://unpkg.com/feather-icons"></script>
+ 
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    .body {
+      
+      margin: 20px;
+      display: flex;
+      
+    }
+   
+/*---------------------------------------header------------------------------------------*/
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  .navbar {
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 0;
+    background-color: #fff !important;
+  }
+
+  .navbar-right li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 8px;
+  }
+
+  .navbar-nav > li > a,
+  .navbar-nav > li > button {
+    font-weight: bold;
+    color: #4A4A4A !important;
+    font-size: 12px; /* Reduced font size for responsiveness */
+    background: transparent;
+    border: none;
+  }
+
+  .navbar-nav > li > a:hover,
+  .navbar-nav > li > button:hover {
+    color: #0D6EFD !important;
+  }
+
+  .dropdown-menu > li > a {
+    font-weight: bold;
+    font-size: 12px; /* Reduced font size for responsiveness */
+  }
+
+  .bootstrap-select .dropdown-toggle {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #4A4A4A;
+    font-weight: bold;
+    font-size: 12px; /* Reduced font size for responsiveness */
+  }
+
+  .bootstrap-select .dropdown-toggle:focus,
+  .bootstrap-select .dropdown-toggle:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .caret {
+    margin-left: 4px;
+  }
+
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px; /* Reduced padding for responsiveness */
+      gap: 15px;        /* Reduced gap for responsiveness */
+      flex-wrap: wrap;
+      border-bottom: 1px solid #E5E5E5;
+      background-color: white;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      max-width: 600px;
+      min-width: 250px;
+      border: 2px solid #0D6EFD;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 6px;      /* Reduced padding for responsiveness */
+      border: none;
+      outline: none;
+      font-size: 12px;  /* Reduced font size for responsiveness */
+    }
+
+    .search-bar select {
+      border: none;
+      border-left: 1px solid #0D6EFD;
+      border-right: 1px solid #0D6EFD;
+      padding: 6px;      /* Reduced padding for responsiveness */
+      outline: none;
+      background: white;
+      font-size: 12px;  /* Reduced font size for responsiveness */
+    }
+
+    .search-bar button {
+      border: none;
+      padding: 7px 8px;    /* Reduced padding for responsiveness */
+      background-color: #0D6EFD;
+      color: white;
+      cursor: pointer;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      font-size: 12px;  /* Reduced font size for responsiveness */
+    }
+
+    .icon-row {
+      display: flex;
+      gap: 10px;      /* Reduced gap for responsiveness */
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #8B96A5;
+      cursor: pointer;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .icon-item:hover {
+      color: #6C7581;
+      transform: scale(1.1);
+    }
+
+    .icon-item p {
+      margin: 3px 0 0;  /* Reduced margin for responsiveness */
+      font-size: 10px;  /* Reduced font size for responsiveness */
+    }
+
+    /* Responsive Search Bar */
+    @media (max-width: 768px) {
+      .header-row {
+        flex-direction: column;
+        gap: 10px;    /* Reduced gap for responsiveness */
+      }
+
+      .search-bar {
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+      }
+
+      .search-bar select {
+        display: none;  /* Hide select on small screens */
+      }
+      .icon-item i {
+        font-size: 16px; /* Reduced icon size for very small screens */
+      }
+      .icon-item p{
+        font-size: 10px;
+      }
+    }
+
+    .sidebar {
+      width: 280px;
+      padding-right: 20px;
+    }
+
+    .filter-section {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    .filter-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .toggle-icon {
+      font-size: 14px;
+      transition: transform 0.3s ease;
+    }
+
+    .rotate {
+      transform: rotate(180deg);
+    }
+
+    .filter-options {
+      transition: all 0.3s ease;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .filter-options label {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+
+    .see-all {
+      color: blue;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    .collapsed label:nth-child(n+6) {
+      display: none;
+    }
+
+    .rating-option {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .rating-option input {
+      transform: scale(1.3);
+      margin: 0;
+    }
+
+    .stars {
+      display: flex;
+      font-size: 1.5em;
+    }
+
+    .stars i {
+      margin-right: 2px;
+    }
+
+    .filled {
+      color: orange;
+    }
+
+    .empty {
+      color: #ccc;
+    }
+
+    .price-body {
+      padding: 0 0 16px;
+    }
+
+    .slider-container {
+      position: relative;
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    input[type=range] {
+      position: absolute;
+      width: 100%;
+      pointer-events: none;
+      -webkit-appearance: none;
+      height: 4px;
+      background: transparent;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      pointer-events: all;
+      -webkit-appearance: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid #3b82f6;
+      cursor: pointer;
+      position: relative;
+      z-index: 3;
+    }
+
+    .slider-track {
+      position: absolute;
+      height: 4px;
+      background: #cbd5e1;
+      top: 18px;
+      left: 0;
+      right: 0;
+      border-radius: 2px;
+    }
+
+    .slider-selected {
+      position: absolute;
+      height: 4px;
+      background: #3b82f6;
+      top: 18px;
+      border-radius: 2px;
+      z-index: 2;
+    }
+
+    .inputs {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .inputs input {
+      width: 48%;
+      padding: 6px 8px;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      font-size: 13px;
+      background-color: #fff;
+    }
+
+    .apply-btn {
+      width: 100%;
+      padding: 8px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .apply-btn:hover {
+      background-color: #2563eb;
+    }
+
+
+    .stars {
+      color: orange;
+    }
+
+
+    .main{
+      display: flex;
+    }    
+
+    .toolbar {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      padding: 10px 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+
+    .item-count {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .item-count b {
+      font-weight: bold;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .controls label {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      gap: 6px;
+    }
+
+    select {
+      padding: 6px 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: white;
+    }
+
+    .view-icons {
+      display: flex;
+      gap: 8px;
+      font-size: 18px;
+    }
+
+    .view-icons button {
+      background: none;
+      border: none;
+      padding: 6px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .view-icons button:hover {
+      background-color: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    .view-icons button i {
+      color: #333;
+    }
+
+    .view-icons button.active i {
+      color: #3b82f6;
+    }
+/* Like button styling */
+.product-list {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    gap: 20px;
+  }
+
+  .product-item {
+    margin: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .product-list.grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .product-item img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .price {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+
+  .old-price {
+    text-decoration: line-through;
+    color: gray;
+    margin-left: 10px;
+  }
+
+  .stars {
+    color: orange;
+  }
+
+  .free-shipping {
+    color: green;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+
+  .details-link {
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+
+  .toolbar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .view-icons {
+    display: flex;
+    gap: 8px;
+    font-size: 18px;
+  }
+
+  .view-icons button {
+    background: none;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .view-icons button:hover {
+    background-color: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  .view-icons button i {
+    color: #333;
+  }
+
+  .view-icons button.active i {
+    color: #3b82f6;
+  }
+
+  .like-btn {
+    color: #999;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+    margin-top: 10px;
+  }
+
+  .like-btn:hover {
+    border-color: #ff4d4d;
+  }
+
+  .like-btn.liked i {
+    color: red;
+  }
+
+  .like-btn i {
+    color: #ccc;
+  }
+
+  .like-btn:hover i {
+    color: #ff4081;
+  }
+
+
+
+
+    @media (max-width: 768px) {
+    .main {
+      flex-direction: column-reverse;
+    }
+    .sidebar {
+      width: 100%;
+      padding-right: 0;
+      margin-bottom: 20px;
+    }
+   
+  }
+          /*--------------------------------------- footer------------------------------------------*/
+
+
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+.subscribe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.subscribe input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 250px;
+  text-align: center;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/732/732200.png');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 16px;
+  padding-left: 35px;
+}
+
+.subscribe button {
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.footer2 {
+  background-color: white;
+  padding: 40px 20px;
+  color: black;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-left {
+  max-width: 500px;
+}
+
+.footer-left img {
+  width: 120px;
+  display: block;
+}
+
+.footer-left p {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #666;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #999;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+}
+
+.get-app {
+  text-align: center;
+}
+
+.get-app a {
+  display: inline-block;
+  margin: 5px;
+}
+
+.get-app img {
+  width: 120px;
+  display: block;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+
+
+  .subscribe {
+      flex-direction: column;
+      align-items: stretch;
+  }
+
+  .subscribe input, .subscribe button {
+      width: 100%;
+      margin: 5px 0;
+  }
+  
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+  
+  .footer-section {
+      margin-top: 20px;
+  }
+  
+  .footer-left {
+      text-align: center;
+      margin-bottom: 20px;
+  }
+
+  .get-app {
+      text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-left img {
+      width: 100%;
+  }
+}
+
+  </style>
+</head>
+<body>
+  
+<!----------------------------------------- header------------------------------------------>
+    
+<header>
+  <div class="header-row">
+    <div>
+      <img src="/public/logo-colored.svg" alt="brand logo" height="40">
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search">
+      <select>
+        <option>All Category</option>
+        <option>Electronics</option>
+        <option>Fashion</option>
+        <option>Automobiles</option>
+      </select>
+      <button>Search</button>
+    </div>
+
+    <div class="icon-row">
+      <div class="icon-item">
+        <i data-feather="user" title="Profile"></i>
+        <p>Profile</p>
+      </div>
+      <div class="icon-item">
+        <i data-feather="message-square" title="Messages"></i>
+        <p>Message</p>
+      </div>
+      <div class="icon-item">
+        <i data-feather="shopping-bag" title="Orders"></i>
+        <p>Orders</p>
+      </div>
+      <div class="icon-item">
+        <i data-feather="shopping-cart" title="My Cart">
+          
+        </i><p><a href="/cart.html" style="color: #8B96A5;;" >My Cart</a></p>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarContent">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+  
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="nav navbar-nav">
+            <li><a href="#"><i>☰</i>All Category</a></li>
+            <li><a href="#">Hot Offers</a></li>
+            <li><a href="#">Gift Boxes</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Menu Items</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Help <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Customer Support</a></li>
+                <li><a href="#">FAQs</a></li>
+              </ul>
+            </li>
+          </ul>
+  
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <select class="selectpicker" data-width="150px">
+                <option>English (USD)</option>
+                <option>Deutsch (EUR)</option>
+                <option>Français (EUR)</option>
+                <option>Español (EUR)</option>
+                <option>हिन्दी (INR)</option>
+                <option>العربية (SAR)</option>
+              </select>
+            </li>
+  
+            <li>
+              <select class="selectpicker countrypicker" data-flag="true" data-width="150px" data-live-search="true"></select>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</header>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select-country/dist/js/bootstrap-select-country.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('.selectpicker').selectpicker();
+  });
+</script>
+
+<script>
+  feather.replace();
+</script>
+<!----------------------------------------- header------------------------------------------>
+
+<div class="body">
+  <div class="main">
+    <div class="sidebar">
+
+  <div class="filter-section">
+    <div class="filter-title" onclick="toggleSection('category-options', 'icon-category')">
+      Category <span class="toggle-icon" id="icon-category">&#9660;</span>
+    </div>
+    <div class="filter-options collapsed" id="category-options">
+      <label>Mobile accessory</label>
+      <label>Electronics</label>
+      <label>Smartphones</label>
+      <label>Modern tech</label>
+      <label>Wearables</label>
+      <label>Gaming</label>
+      <label>Audio</label>
+      <label>Cameras</label>
+      <label>Chargers</label>
+      <label>Cases</label>
+      <div class="see-all" onclick="toggleSeeAll(this)">See all</div>
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <div class="filter-title" onclick="toggleSection('brand-options', 'icon-brands')">
+      Brands <span class="toggle-icon" id="icon-brands">&#9660;</span>
+    </div>
+    <div class="filter-options collapsed" id="brand-options">
+      <label><input type="checkbox"> Samsung</label>
+      <label><input type="checkbox"> Apple</label>
+      <label><input type="checkbox"> Huawei</label>
+      <label><input type="checkbox"> Poco</label>
+      <label><input type="checkbox"> Lenovo</label>
+      <label><input type="checkbox"> Nokia</label>
+      <label><input type="checkbox"> Xiaomi</label>
+      <label><input type="checkbox"> Realme</label>
+      <label><input type="checkbox"> OnePlus</label>
+      <label><input type="checkbox"> Google</label>
+      <div class="see-all" onclick="toggleSeeAll(this)">See all</div>
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <div class="filter-title" onclick="toggleSection('feature-options', 'icon-features')">
+      Features <span class="toggle-icon" id="icon-features">&#9660;</span>
+    </div>
+    <div class="filter-options collapsed" id="feature-options">
+      <label><input type="checkbox"> Metallic</label>
+      <label><input type="checkbox"> Plastic cover</label>
+      <label><input type="checkbox"> 8GB RAM</label>
+      <label><input type="checkbox"> Super power</label>
+      <label><input type="checkbox"> Large memory</label>
+      <label><input type="checkbox"> Wireless charging</label>
+      <label><input type="checkbox"> Waterproof</label>
+      <label><input type="checkbox"> Fast charging</label>
+      <label><input type="checkbox"> 4K Video</label>
+      <label><input type="checkbox"> Face unlock</label>
+      <div class="see-all" onclick="toggleSeeAll(this)">See all</div>
+    </div>
+  </div>
+
+   <div class="filter-section" id="priceFilter">
+    <div class="filter-title" onclick="toggleSection('price-body', 'price-icon')">
+      Price range <span class="toggle-icon" id="price-icon">&#9660;</span>
+    </div>
+    <div class="price-body" id="price-body">
+      <div class="slider-container">
+        <div class="slider-track"></div>
+        <div class="slider-selected" id="slider-selected"></div>
+        <input type="range" id="min-range" min="0" max="999999" value="0">
+        <input type="range" id="max-range" min="0" max="999999" value="999999">
+      </div>
+      <div class="inputs">
+        <input type="number" id="min-input" min="0" max="999999">
+        <input type="number" id="max-input" min="0" max="999999">
+      </div>
+      <button class="apply-btn" onclick="applyRange()">Apply</button>
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <div class="filter-title" onclick="toggleSection('condition-options', 'icon-condition')">
+      Condition <span class="toggle-icon" id="icon-condition">&#9660;</span>
+    </div>
+    <div class="filter-options collapsed" id="condition-options">
+      <label><input type="checkbox"> New</label>
+      <label><input type="checkbox"> Used</label>
+      <label><input type="checkbox"> Refurbished</label>
+      <label><input type="checkbox"> Like new</label>
+      <label><input type="checkbox"> Open box</label>
+      <label><input type="checkbox"> For parts</label>
+      <label><input type="checkbox"> Damaged</label>
+      <label><input type="checkbox"> Repaired</label>
+      <label><input type="checkbox"> Unlocked</label>
+      <label><input type="checkbox"> Locked</label>
+      <div class="see-all" onclick="toggleSeeAll(this)">See all</div>
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <div class="filter-title" onclick="toggleSection('rating-options', 'icon-ratings')">
+      Ratings <span class="toggle-icon" id="icon-ratings">&#9660;</span>
+    </div>
+    <div class="filter-options" id="rating-options">
+      <label class="rating-option" style="display: flex;"><input type="checkbox" name="rating"><div class="stars">
+        <i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i>
+      </div></label>
+      <label class="rating-option" style="display: flex;"><input type="checkbox" name="rating"><div class="stars">
+        <i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star empty"></i>
+      </div></label>
+      <label class="rating-option" style="display: flex;"><input type="checkbox" name="rating"><div class="stars">
+        <i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star empty"></i><i class="fas fa-star empty"></i>
+      </div></label>
+      <label class="rating-option" style="display: flex;"><input type="checkbox" name="rating"><div class="stars">
+        <i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star empty"></i><i class="fas fa-star empty"></i><i class="fas fa-star empty"></i>
+      </div></label>
+    </div>
+  </div>
+
+ 
+
+</div>
+
+<div class="right sectio">
+<div class="toolbar">
+  <div class="item-count">12,911 items in <b>Mobile accessory</b></div>
+  <div class="controls">
+    <label>
+      <input type="checkbox" />
+      Verified only
+    </label>
+    <select>
+      <option>Featured</option>
+      <option>Price: Low to High</option>
+      <option>Price: High to Low</option>
+      <option>Newest</option>
+    </select>
+    <div class="view-icons">
+      <div class="view-icons">
+        <button class="icon-button active" title="Grid view" onclick="window.location.href='grid.html'">
+            <i class="fas fa-th-large"></i>
+          </button>
+        <button class="icon-button " title="List view" onclick="window.location.href='list.html'">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="product-list">
+  
+    <div class="product-list grid-view" id="product-list">
+        <div class="product-item">
+          <img src="/public/image34.png" alt="Canon Camera">
+          <div class="product-info">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <span class="price">$998.00</span>
+              <button class="like-btn" onclick="toggleLike(this)">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div>
+              <span class="stars">★★★★☆</span> 7.5 |
+              154 orders
+              <span class="free-shipping">Free Shipping</span>
+            </div>
+            <h3>Canon Camera EOS 2000, Black 10x zoom</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a href="/detail.html" class="details-link">View details</a>
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="public/tech/1.jpg" alt="Canon Camera">
+          <div class="product-info">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <span class="price">$998.00</span>
+              <button class="like-btn" onclick="toggleLike(this)">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div>
+              <span class="stars">★★★★☆</span> 7.5 |
+              154 orders
+              <span class="free-shipping">Free Shipping</span>
+            </div>
+            <h3>Canon Camera EOS 2000, Black 10x zoom</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a href="#" class="details-link">View details</a>
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="public/tech/1.jpg" alt="Canon Camera">
+          <div class="product-info">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <span class="price">$998.00</span>
+              <button class="like-btn" onclick="toggleLike(this)">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div>
+              <span class="stars">★★★★☆</span> 7.5 |
+              154 orders
+              <span class="free-shipping">Free Shipping</span>
+            </div>
+            <h3>Canon Camera EOS 2000, Black 10x zoom</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a href="#" class="details-link">View details</a>
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="public/tech/1.jpg" alt="Canon Camera">
+          <div class="product-info">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <span class="price">$998.00</span>
+              <button class="like-btn" onclick="toggleLike(this)">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div>
+              <span class="stars">★★★★☆</span> 7.5 |
+              154 orders
+              <span class="free-shipping">Free Shipping</span>
+            </div>
+            <h3>Canon Camera EOS 2000, Black 10x zoom</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a href="#" class="details-link">View details</a>
+          </div>
+        </div>
+        <div class="product-item">
+          <img src="public/tech/1.jpg" alt="Canon Camera">
+          <div class="product-info">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+              <span class="price">$998.00</span>
+              <button class="like-btn" onclick="toggleLike(this)">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+            <div>
+              <span class="stars">★★★★☆</span> 7.5 |
+              154 orders
+              <span class="free-shipping">Free Shipping</span>
+            </div>
+            <h3>Canon Camera EOS 2000, Black 10x zoom</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a href="#" class="details-link">View details</a>
+          </div>
+        </div>
+        </div>
+ 
+</div>
+</div>
+</div>
+</div>
+<footer class="footer"> 
+  <h2 style="color: black;">Subscribe to our Newsletter</h2>
+  <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+  <div class="subscribe">
+      <input type="email" placeholder="Enter your email">
+      <button>Subscribe</button>
+  </div>
+</footer>
+
+<footer class="footer2">
+  <div class="footer-container">
+      <div class="footer-left">
+          <img src="public/logo-colored.svg" alt="Brand Logo">
+          <div style="font-size: 18px;width: 300px;;padding-right: 40px;
+color: #999;">Best information about the company goes here But now lorem ipsum is.</div>
+         
+          <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="far fa-envelope"></i></a>
+          </div>
+      </div>
+      <div class="footer-section">
+          <h4>About</h4>
+          <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Find Store</a></li>
+              <li><a href="#">Categories</a></li>
+              <li><a href="#">Blogs</a></li>
+          </ul>
+      </div>
+      <div class="footer-section">
+          <h4>Partnership</h4>
+          <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Find Store</a></li>
+              <li><a href="#">Categories</a></li>
+              <li><a href="#">Blogs</a></li>
+          </ul>
+      </div>
+      <div class="footer-section">
+          <h4>Information</h4>
+          <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Money Refund</a></li>
+              <li><a href="#">Shipping</a></li>
+              <li><a href="#">Contact Us</a></li>
+          </ul>
+      </div>
+      <div class="footer-section">
+          <h4>For Users</h4>
+          <ul>
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Register</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">My Orders</a></li>
+          </ul>
+      </div>
+      <div class="footer-section get-app">
+          <h4>Get App</h4>
+          <a href="#"><img src="public/apple.png" alt="Download on the App Store"></a>
+          <a href="#"><img src="public/google.png" alt="Get it on Google Play"></a>
+      </div>
+  </div>
+  <div class="footer-bottom">
+      &copy; 2023 Ecommerce.
+  </div>
+</footer>
+
+<script>
+  const minRange = document.getElementById('min-range');
+  const maxRange = document.getElementById('max-range');
+  const minInput = document.getElementById('min-input');
+  const maxInput = document.getElementById('max-input');
+  const selectedBar = document.getElementById('slider-selected');
+  const maxValue = parseInt(maxRange.max);
+
+  function updateSliderFromInputs() {
+    let min = parseInt(minInput.value) || 0;
+    let max = parseInt(maxInput.value) || maxValue;
+    if (min > max) [min, max] = [max, min];
+    minRange.value = min;
+    maxRange.value = max;
+    updateSlider();
+  }
+
+  function updateSlider() {
+    const min = parseInt(minRange.value);
+    const max = parseInt(maxRange.value);
+    const percentMin = (min / maxValue) * 100;
+    const percentMax = (max / maxValue) * 100;
+    selectedBar.style.left = percentMin + "%";
+    selectedBar.style.right = (100 - percentMax) + "%";
+    minInput.value = min;
+    maxInput.value = max;
+  }
+
+  minRange.addEventListener('input', () => {
+    if (parseInt(minRange.value) > parseInt(maxRange.value)) {
+      minRange.value = maxRange.value;
+    }
+    updateSlider();
+  });
+
+  maxRange.addEventListener('input', () => {
+    if (parseInt(maxRange.value) < parseInt(minRange.value)) {
+      maxRange.value = minRange.value;
+    }
+    updateSlider();
+  });
+
+  minInput.addEventListener('change', updateSliderFromInputs);
+  maxInput.addEventListener('change', updateSliderFromInputs);
+
+  function applyRange() {
+    const min = parseInt(minRange.value);
+    const max = parseInt(maxRange.value);
+    alert(`Filtering products from $${min} to $${max}`);
+    // Add your actual filtering logic here
+  }
+
+  function toggleSection(sectionId, iconId) {
+    const section = document.getElementById(sectionId);
+    const icon = document.getElementById(iconId);
+    section.classList.toggle('hidden');
+    icon.classList.toggle('rotate');
+  }
+
+  function toggleSeeAll(btn) {
+    const container = btn.parentElement;
+    container.classList.toggle('collapsed');
+    btn.textContent = container.classList.contains('collapsed') ? 'See all' : 'See less';
+  }
+  function toggleLike(button) {
+    const icon = button.querySelector('i');
+    button.classList.toggle('liked');
+    icon.classList.toggle('far');  // Change icon from outline to solid
+    icon.classList.toggle('fas');  // Toggle between filled and outline heart
+  }
+  
+
+  // Initial slider bar setup
+  updateSlider();
+</script>
+
+</body>
+
+</html>

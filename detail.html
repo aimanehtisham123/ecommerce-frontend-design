@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css@7.0.0/css/flag-icon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-select-country/dist/css/bootstrap-select-country.min.css">
+
+  <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        body{
+            background-color: #f4f4f4;
+        }
+   
+/*---------------------------------------header------------------------------------------*/
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  .navbar {
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 0;
+    background-color: #fff !important;
+  }
+
+  .navbar-right li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 8px;
+  }
+
+  .navbar-nav > li > a,
+  .navbar-nav > li > button {
+    font-weight: bold;
+    color: #4A4A4A !important;
+    font-size: 12px; /* Reduced font size for responsiveness */
+    background: transparent;
+    border: none;
+  }
+
+  .navbar-nav > li > a:hover,
+  .navbar-nav > li > button:hover {
+    color: #0D6EFD !important;
+  }
+
+  .dropdown-menu > li > a {
+    font-weight: bold;
+    font-size: 12px; /* Reduced font size for responsiveness */
+  }
+
+  .bootstrap-select .dropdown-toggle {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #4A4A4A;
+    font-weight: bold;
+    font-size: 12px; /* Reduced font size for responsiveness */
+  }
+
+  .bootstrap-select .dropdown-toggle:focus,
+  .bootstrap-select .dropdown-toggle:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .caret {
+    margin-left: 4px;
+  }
+
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px; /* Reduced padding for responsiveness */
+      gap: 15px;        /* Reduced gap for responsiveness */
+      flex-wrap: wrap;
+      border-bottom: 1px solid #E5E5E5;
+      background-color: white;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      max-width: 600px;
+      min-width: 250px;
+      border: 2px solid #0D6EFD;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 6px;      /* Reduced padding for responsiveness */
+      border: none;
+      outline: none;
+      font-size: 12px;  /* Reduced font size for responsiveness */
+    }
+
+    .search-bar select {
+      border: none;
+      border-left: 1px solid #0D6EFD;
+      border-right: 1px solid #0D6EFD;
+      padding: 6px;      /* Reduced padding for responsiveness */
+      outline: none;
+      background: white;
+      font-size: 12px;  /* Reduced font size for responsiveness */
+    }
+
+    .search-bar button {
+      border: none;
+      padding: 7px 8px;    /* Reduced padding for responsiveness */
+      background-color: #0D6EFD;
+      color: white;
+      cursor: pointer;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      font-size: 12px;  /* Reduced font size for responsiveness */
+    }
+
+    .icon-row {
+      display: flex;
+      gap: 10px;      /* Reduced gap for responsiveness */
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #8B96A5;
+      cursor: pointer;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .icon-item:hover {
+      color: #6C7581;
+      transform: scale(1.1);
+    }
+
+    .icon-item p {
+      margin: 3px 0 0;  /* Reduced margin for responsiveness */
+      font-size: 10px;  /* Reduced font size for responsiveness */
+    }
+
+    /* Responsive Search Bar */
+    @media (max-width: 768px) {
+      .header-row {
+        flex-direction: column;
+        gap: 10px;    /* Reduced gap for responsiveness */
+      }
+
+      .search-bar {
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+      }
+
+      .search-bar select {
+        display: none;  /* Hide select on small screens */
+      }
+      .icon-item i {
+        font-size: 16px; /* Reduced icon size for very small screens */
+      }
+      .icon-item p{
+        font-size: 10px;
+      }
+    }
+
+        .div1 {
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .right{
+            background-color: none;
+            max-width: 200px;
+        }
+        .supplier-info-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 30px;
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .supplier-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .supplier-letter {
+            background-color: #81c784;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+        }
+
+        .supplier-name {
+            font-size: 1em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .location-info {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+            font-size: 0.8em;
+            color: #555;
+        }
+
+        .verified-info {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+            font-size: 0.8em;
+            color: #555;
+        }
+
+        .shipping-info {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+            font-size: 0.8em;
+            color: #555;
+        }
+
+        .inquiry-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .profile-button {
+            background-color: #fff;
+            color: blue;
+            padding: 10px;
+            border: 1px solid #B0BEC5;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .save-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: blue;
+            font-size: 0.8em;
+            cursor: pointer;
+            margin-left: auto;
+            margin-right: auto;
+            display: table;
+            text-align: center;
+            border: none;
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .save-button:hover {
+            opacity: 0.7;
+        }
+
+        .text-color {
+            color: #555;
+        }
+        .text1-color {
+            color: blue;
+        }
+
+        .seller-profit {
+            color: blue;
+        }
+        /* Like button styling */
+.like-btn {
+  color: #999;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+    width: 15px; /* Increased width */
+    height: 15px; /* Increased height */
+}
+
+.like-btn:hover {
+  border-color: #ff4d4d;
+}
+
+.like-btn.liked i {
+  color: red;
+}
+.like-btn i {
+  color: blue; /* Grey color for the heart icon */
+  transition: color 0.3s ease;
+}
+
+.like-btn:hover i {
+  color: #ff4081; /* Change color when hovered */
+}
+        .container1{
+            background-color: #f4f4f4;
+            height: 20px;
+        }
+        .main1{
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            display: flex;
+            padding: 20px;
+
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background-color: #fff;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .rating-review-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stars {
+            color: #f9a825;
+        }
+
+        .rating-value {
+            font-weight: bold;
+            color: #f9a825;
+        }
+
+        .reviews-sold {
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        .review-logo::before {
+            content: "💬";
+            margin-right: 2px;
+        }
+
+        .sold-logo::before {
+            content: "🛒";
+            margin-right: 2px;
+        }
+
+        selection-tag {
+            font-size: 1.2em;
+        }
+
+        .bullet-point {
+            color: #ccc;
+        }
+        .empty-star {
+            color: #ddd;
+        }
+        .in-stock {
+            color: orangered;
+            font-weight: bold;
+        }
+
+        .product-images {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-image {
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .price-tiers {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: flex-start;
+            padding: 8px;
+            background-color: #FFEBCC;
+        }
+
+        .price-tier {
+            text-align: center;
+            padding: 8px;
+            border: none;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            width: 90px;
+            position: relative;
+        }
+
+        .price-tier:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -5px;
+            height: 60%;
+            width: 1px;
+            background-color: #ddd;
+            transform: translateY(-50%);
+        }
+
+        .price-tier:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .price {
+            font-size: 1em;
+            font-weight: bold;
+            color: #e44d26;
+            margin-bottom: 5px;
+        }
+        .price1 {
+            font-size: 1em;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 5px;
+        }
+
+        .quantity {
+            font-size: 0.7em;
+            color: #555;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .thumbnail-images {
+            display: flex;
+            gap: 5px;
+        }
+
+        .thumbnail {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            object-fit: cover;
+        }
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .supplier-info {
+            border: 1px solid #eee;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+        }
+
+        .supplier-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .supplier-location, .supplier-shipping {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 3px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .action-button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .send-inquiry {
+            background-color: #1e88e5;
+            color: white;
+        }
+
+        .seller-profile {
+            color: #1e88e5;
+            background-color: transparent;
+            border: 1px solid #1e88e5;
+        }
+
+        .save-for-later {
+            color: #555;
+            background-color: transparent;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .product-specs {
+            margin-bottom: 15px;
+        }
+
+        .spec-row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9em;
+        }
+        .spec1-row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 10px 0;
+            
+            font-size: 0.9em;
+        }
+
+
+        .spec-label {
+            color: #555;
+            font-weight: bold;
+        }
+
+        .spec-value {
+            color: #333;
+        }
+
+        .product-highlights {
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        .product-highlights strong {
+            color: #555;
+            font-weight: bold;
+        }
+
+        .product-highlights ul {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+
+        .product-highlights li {
+            list-style-type: disc;
+            margin-bottom: 3px;
+        }
+
+        .tab-section {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        .tab-buttons {
+            display: flex;
+        }
+
+        .tab-button {
+            padding: 10px 15px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            color: #555;
+        }
+
+        .tab-button.active {
+            border-bottom: 2px solid #1e88e5;
+            color: #1e88e5;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            padding: 15px 0;
+            font-size: 0.9em;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .related-products-section {
+            grid-column: 1 / -1;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .related-products-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .related-products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .related-product-item {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .related-product-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 5px;
+        }
+
+        .related-product-title-small {
+            font-size: 0.8em;
+            margin-bottom: 3px;
+        }
+
+
+        .you-may-like-section {
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        .you-may-like-title {
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .you-may-like-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .you-may-like-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            object-fit: cover;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .you-may-like-info {
+            font-size: 0.85em;
+        }
+
+        .you-may-like-name {
+            font-weight: bold;
+            display: block;
+        }
+
+        .you-may-like-price {
+            color: #e44d26;
+            display: block;
+        }
+
+        .super-discount {
+            grid-column: 1 / -1;
+            background-color: #fce4ec;
+            color: #d81b60;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .super-discount strong {
+            font-weight: bold;
+        }
+
+        .main2 {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #8B96A5; /* Changed default text color to #8B96A5 */
+        }
+
+        .main-content {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            margin-top: 20px;
+            justify-content: space-between;
+        }
+
+        .product-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 65%;
+        }
+
+        .tabs {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .tabs ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .tabs li {
+            margin-right: 15px;
+        }
+
+        .tabs li a {
+            text-decoration: none;
+            color: #555;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        .tabs li a.active {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+        }
+
+        .description-content {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border: 1px solid #eee;
+        }
+
+        .details-table th, .details-table td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+            color: #505050;
+            border-right: 1px solid #eee;
+        }
+
+        .details-table th {
+            font-weight: bold;
+            width: 150px;
+            color: #505050;
+            background-color: #E0E7E9; /* Changed th background color to #E0E7E9 */
+        }
+
+        /* Remove border from the last column */
+        .details-table th:last-child,
+        .details-table td:last-child {
+            border-right: none;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .features-list li {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: green;
+            margin-right: 10px;
+        }
+
+        .suggestions-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            margin-left: 20px;
+        }
+
+        .suggestions-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .suggestion-item {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .suggestion-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .suggestion-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+
+        .suggestion-details {
+            flex-grow: 1;
+        }
+
+        .suggestion-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .suggestion-price {
+            color: #777;
+            font-size: 0.9em;
+        }
+        
+        .related-products-container {
+            display: flex;
+            justify-content: space-between; /* Space items evenly */
+            gap: 20px; /* Added gap property */
+        }
+
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd; /* Light border */
+            border-radius: 8px; /* Rounded corners */
+            padding: 15px;
+            text-align: center;
+            width: 160px; /* Fixed width for consistency */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+        }
+
+        .product-card img {
+            max-width: 100%; /* Ensure image doesn't overflow */
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333; /* Darker text */
+        }
+
+        .product-price {
+            font-size: 12px;
+            color: #666; /* Medium gray text */
+        }
+        .main3{
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+
+        }
+        @media (max-width: 480px){
+           .product-card{
+             width: 90%;
+           }
+        }
+        @media (max-width: 980px) {
+            
+            .suggestions-container {
+                width: 100%;
+                margin-left: 0;
+            }
+            .product-container {
+                width: 100%;
+            }
+            .main-content {
+                flex-direction: column; 
+                gap: 20px;
+            }
+            .related-products-container {
+                flex-wrap: wrap; /* Allow wrapping on smaller screens */
+                justify-content: center; /* Center items when wrapped */
+                gap: 20px; /* Added gap property */
+            }
+            .product-card {
+                width: 45%; /* Take up more width on smaller screens */
+                margin-bottom: 20px;
+            }
+            .main1{
+                flex-direction: column; 
+            }
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .product-images {
+                align-items: stretch;
+            }
+            .right{
+                width: 100%;
+                max-width: 100%;
+            }
+            .main-image {
+                max-width: 100%;
+            }
+
+            .thumbnail-images {
+                justify-content: center;
+            }
+             .action-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .action-button {
+                width: 100%;
+            }
+            .supplier-info-card{
+                width: 100%;
+            }
+        }
+                /*--------------------------------------- footer------------------------------------------*/
+
+
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+  }
+  
+  .subscribe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .subscribe input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+    text-align: center;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/732/732200.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 16px;
+    padding-left: 35px;
+  }
+  
+  .subscribe button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .footer2 {
+    background-color: white;
+    padding: 40px 20px;
+    color: black;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .footer-left {
+    max-width: 500px;
+  }
+  
+  .footer-left img {
+    width: 120px;
+    display: block;
+  }
+  
+  .footer-left p {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #666;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .social-icons a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #999;
+  }
+  
+  .footer-section {
+    flex: 1;
+    min-width: 150px;
+  }
+  
+  .footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin: 5px 0;
+  }
+  
+  .footer-section ul li a {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .get-app {
+    text-align: center;
+  }
+  
+  .get-app a {
+    display: inline-block;
+    margin: 5px;
+  }
+  
+  .get-app img {
+    width: 120px;
+    display: block;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+  
+  
+  
+    .subscribe {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  
+    .subscribe input, .subscribe button {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-section {
+        margin-top: 20px;
+    }
+    
+    .footer-left {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+  
+    .get-app {
+        text-align: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-left img {
+        width: 100%;
+    }
+  }
+    </style>
+</head>
+<body>
+    
+<!----------------------------------------- header------------------------------------------>
+    
+<header>
+    <div class="header-row">
+      <div>
+        <img src="/public/logo-colored.svg" alt="brand logo" height="40">
+      </div>
+  
+      <div class="search-bar">
+        <input type="text" placeholder="Search">
+        <select>
+          <option>All Category</option>
+          <option>Electronics</option>
+          <option>Fashion</option>
+          <option>Automobiles</option>
+        </select>
+        <button>Search</button>
+      </div>
+  
+      <div class="icon-row">
+        <div class="icon-item">
+          <i data-feather="user" title="Profile"></i>
+          <p>Profile</p>
+        </div>
+        <div class="icon-item">
+          <i data-feather="message-square" title="Messages"></i>
+          <p>Message</p>
+        </div>
+        <div class="icon-item">
+          <i data-feather="shopping-bag" title="Orders"></i>
+          <p>Orders</p>
+        </div>
+        <div class="icon-item">
+          <i data-feather="shopping-cart" title="My Cart"></i>
+          <p><a href="/cart.html" style="color: #8B96A5;" >My Cart</a></p>
+          
+        </div>
+      </div>
+    </div>
+    <!-- <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarContent">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+    
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="nav navbar-nav">
+              <li><a href="/list.html"><i>☰</i>All Category</a></li>
+              <li><a href="#">Hot Offers</a></li>
+              <li><a href="#">Gift Boxes</a></li>
+              <li><a href="#">Projects</a></li>
+              <li><a href="#">Menu Items</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Help <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Customer Support</a></li>
+                  <li><a href="#">FAQs</a></li>
+                </ul>
+              </li>
+            </ul>
+    
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <select class="selectpicker" data-width="150px">
+                  <option>English (USD)</option>
+                  <option>Deutsch (EUR)</option>
+                  <option>Français (EUR)</option>
+                  <option>Español (EUR)</option>
+                  <option>हिन्दी (INR)</option>
+                  <option>العربية (SAR)</option>
+                </select>
+              </li>
+    
+              <li>
+                <select class="selectpicker countrypicker" data-flag="true" data-width="150px" data-live-search="true"></select>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav> -->
+  </header>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select-country/dist/js/bootstrap-select-country.min.js"></script>
+  
+  <script>
+    $(document).ready(function () {
+      $('.selectpicker').selectpicker();
+    });
+  </script>
+  
+  <script>
+    feather.replace();
+  </script>
+  <!----------------------------------------- header------------------------------------------>
+    <div class="div1">
+    <div class="main1">
+        <div class="left">
+    <div class="container">
+        <div class="product-images">
+            <img src="/public/image34.png" alt="Product Main Image" class="main-image">
+            <div class="thumbnail-images">
+                <img src="/public/image39.png" alt="Product Thumbnail 1" class="thumbnail">
+                <img src="/public/image35.png" alt="Product Thumbnail 2" class="thumbnail">
+                <img src="/public/image40.png" alt="Product Thumbnail 3" class="thumbnail">
+                <img src="/public/image36.png" alt="Product Thumbnail 3" class="thumbnail">
+                <img src="/public/image37.png" alt="Product Thumbnail 3" class="thumbnail">
+                <img src="/public/image39.png" alt="Product Thumbnail 3" class="thumbnail">
+            </div>
+        </div>
+        <div class="product-details">
+            <div class="in-stock">✔ In stock</div>
+            <h1 class="product-title">Mens Long Sleeve T-shirt Cotton Base Layer Slim Muscle</h1>
+            <div class="rating-review-container">
+                <div class="stars">★★★★<span class = "empty-star">★</span></div>
+                <span class="rating-value">9.3</span>
+                <span class="bullet-point">•</span>
+                <span class="reviews-sold review-logo">32 reviews</span>
+                <span class="bullet-point">•</span>
+                <span class="reviews-sold sold-logo">154 sold</span>
+            </div>
+            <div class="price-tiers">
+                <div class="price-tier">
+                    <div class="price">$98.00</div>
+                    <div class="quantity">50-100 pcs</div>
+                </div>
+                <div class="price-tier">
+                    <div class="price1">$90.00</div>
+                    <div class="quantity">100-700 pcs</div>
+                </div>
+                <div class="price-tier">
+                    <div class="price1">$78.00</div>
+                    <div class="quantity">700+ pcs</div>
+                </div>
+            </div>
+            
+            <div class="product-specs">
+                <div class="spec-row">
+                    <div class="spec-label">Price:</div>
+                    <div class="spec-value">Negotiable</div>
+                </div>
+                <div class="spec1-row">
+                    <div class="spec-label">Type:</div>
+                    <div class="spec-value">Classic shoes</div>
+                </div>
+                <div class="spec1-row">
+                    <div class="spec-label">Material:</div>
+                    <div class="spec-value">Plastic material</div>
+                </div>
+                 <div class="spec-row">
+                    <div class="spec-label">Design:</div>
+                    <div class="spec-value">Modern nice</div>
+                </div>
+                <div class="spec1-row">
+                    <div class="spec-label">Customization:</div>
+                    <div class="spec-value">Customized logo and design custom packages</div>
+                </div>
+                <div class="spec1-row">
+                    <div class="spec-label">Protection:</div>
+                    <div class="spec-value">Refund Policy</div>
+                </div>
+                <div class="spec-row">
+                    <div class="spec-label">Warranty:</div>
+                    <div class="spec-value">2 years full warranty</div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+    <div class="right">
+            
+    <div class="supplier-info-card">
+        <div class="supplier-header">
+            <div class="supplier-letter">R</div>
+            <div class="supplier-name text-color">Guanjoi Trading LLC</div>
+        </div>
+        <div class="location-info">
+            <span class="flag-icon flag-icon-de text-color" style="font-size: 1em;"></span>
+            <span class = "text-color">Germany, Berlin</span>
+        </div>
+        <div class="verified-info">
+            <i class="fas fa-check-circle text-success" style="margin-right: 2px;"></i>
+            <span class = "text-color">Verified Seller</span>
+        </div>
+        <div class="shipping-info">
+            <i class="fas fa-globe" style="margin-right: 2px;"></i>
+            <span class = "text-color">Worldwide shipping</span>
+        </div>
+        <button class="inquiry-button">Send inquiry</button>
+        <button class="profile-button">Seller's profile</button>
+    </div>
+    <div class="save-button">
+       <button class="like-btn" onclick="toggleLike(this)">
+        <i class="far fa-heart"></i>
+      </button> <span class = "text1-color" > Save for later</span>
+    </div>
+    </div>
+</div>
+    <div class="container1"></div>
+    
+    <div class="main2">
+        <div class="main-content">
+            <div class="product-container">
+                <div class="tabs">
+                    <ul>
+                        <li><a href="#" class="active" style="color: #8B96A5;">Description</a></li>
+                        <li><a href="#" style="color: #8B96A5;">Reviews</a></li>
+                        <li><a href="#" style="color: #8B96A5;">Shipping</a></li>
+                        <li><a href="#" style="color: #8B96A5;">About seller</a></li>
+                    </ul>
+                </div>
+                <div class="description-content">
+                    <p style="color: #505050;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                    <p style="color: #505050;">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+                <table class="details-table">
+                    <tr>
+                        <th style="color: #505050;">Model</th>
+                        <td style="color: #505050;">#8786867</td>
+                    </tr>
+                    <tr>
+                        <th style="color: #505050;">Style</th>
+                        <td style="color: #505050;">Classic style</td>
+                    </tr>
+                    <tr>
+                        <th style="color: #505050;">Certificate</th>
+                        <td style="color: #505050;">ISO-898921212</td>
+                    </tr>
+                    <tr>
+                        <th style="color: #505050;">Size</th>
+                        <td style="color: #505050;">34mm x 450mm x 19mm</td>
+                    </tr>
+                    <tr>
+                        <th style="color: #505050;">Memory</th>
+                        <td style="color: #505050;">36GB RAM</td>
+                    </tr>
+                </table>
+                <ul class="features-list">
+                    <li style="color: #505050;">Some great feature name here</li>
+                    <li style="color: #505050;">Lorem ipsum dolor sit amet, consectetur</li>
+                    <li style="color: #505050;">Duis aute irure dolor in reprehenderit</li>
+                    <li style="color: #505050;">Some great feature name here</li>
+                </ul>
+            </div>
+            <div class="suggestions-container">
+                <h2 class="suggestions-title">You may like</h2>
+                <div class="suggestion-item">
+                    <img src="/public/cloth/7.jpg" alt="Men Blazers Sets">
+                    <div class="suggestion-details">
+                        <div class="suggestion-title">Men Blazers Sets Elegant Formal</div>
+                        <div class="suggestion-price">$7.00 - $99.50</div>
+                    </div>
+                </div>
+                <div class="suggestion-item">
+                    <img src="/public/cloth/1.jpg" alt="Men Shirt Sleeve">
+                    <div class="suggestion-details">
+                        <div class="suggestion-title">Men Shirt Sleeve Polo Contrast</div>
+                        <div class="suggestion-price">$7.00 - $99.50</div>
+                    </div>
+                </div>
+                <div class="suggestion-item">
+                    <img src="/public/cloth/3.jpg" alt="Apple Watch Series">
+                    <div class="suggestion-details">
+                        <div class="suggestion-title">Apple Watch Series Space Gray</div>
+                        <div class="suggestion-price">$7.00 - $99.50</div>
+                    </div>
+                </div>
+                <div class="suggestion-item">
+                    <img src="/public/cloth/2.jpg" alt="Basketball Crew Socks">
+                    <div class="suggestion-details">
+                        <div class="suggestion-title">Basketball Crew Socks Long Stuff</div>
+                        <div class="suggestion-price">$7.00 - $99.50</div>
+                    </div>
+                </div>
+                <div class="suggestion-item">
+                    <img src="/public/cloth/5.jpg" alt="New Summer Men's">
+                    <div class="suggestion-details">
+                        <div class="suggestion-title">New Summer Men's castrol T-Shirts</div>
+                        <div class="suggestion-price">$7.00 - $99.50</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="container1"></div>
+        
+    <div class="main3">
+        <h2>Related Products</h2>
+        <div class="related-products-container">
+            <div class="product-card">
+                <img src="/public/cloth/6.jpg" alt="Wallet"> <div class="product-title">Xiaomi Redmi 8 Original</div>
+                <div class="product-price">$32.00-$40.00</div>
+            </div>
+            <div class="product-card">
+                <img src="/public/tech/8.jpg" alt="Smartwatch"> <div class="product-title">Xiaomi Redmi 8 Original</div>
+                <div class="product-price">$32.00-$40.00</div>
+            </div>
+            <div class="product-card">
+                <img src="/public/tech/9.jpg" alt="Headphones"> <div class="product-title">Xiaomi Redmi 8 Original</div>
+                <div class="product-price">$32.00-$40.00</div>
+            </div>
+            <div class="product-card">
+                <img src="/public/cloth/4.jpg" alt="Shorts">  <div class="product-title">Xiaomi Redmi 8 Original</div>
+                <div class="product-price">$32.00-$40.00</div>
+            </div>
+            <div class="product-card">
+                <img src="/public/tech/10.jpg" alt="Kettle">  <div class="product-title">Xiaomi Redmi 8 Original</div>
+                <div class="product-price">$32.00-$40.00</div>
+            </div>
+            <div class="product-card">
+                <img src="/public/interior/7.jpg" alt="Organizer">  <div class="product-title">Xiaomi Redmi 8 Original</div>
+                <div class="product-price">$32.00-$40.00</div>
+            </div>
+        </div></div>
+    </div>
+        <footer class="footer2">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <img src="public/logo-colored.svg" alt="Brand Logo">
+                    <div style="font-size: 18px;width: 300px;;padding-right: 40px;
+        color: #999;">Best information about the company goes here But now lorem ipsum is.</div>
+                   
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="far fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Find Store</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Partnership</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Find Store</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Money Refund</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For Users</h4>
+                    <ul>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">My Orders</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section get-app">
+                    <h4>Get App</h4>
+                    <a href="#"><img src="public/apple.png" alt="Download on the App Store"></a>
+                    <a href="#"><img src="public/google.png" alt="Get it on Google Play"></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2023 Ecommerce.
+            </div>
+        </footer>
+      
+</body>
+<script>
+    function toggleLike(button) {
+        const icon = button.querySelector('i');
+        button.classList.toggle('liked');
+        icon.classList.toggle('far');  // Change icon from outline to solid
+        icon.classList.toggle('fas');  // Toggle between filled and outline heart
+    }
+</script>
+</html>

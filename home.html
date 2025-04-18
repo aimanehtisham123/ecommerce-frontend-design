@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-select-country/dist/css/bootstrap-select-country.min.css">
+
+  <script src="https://unpkg.com/feather-icons"></script>
+ 
+  </head>
+<style>
+ body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f4f4;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin:0;
+  }
+
+    
+    /*---------------------------------------header------------------------------------------*/
+    
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+      .navbar {
+        border-bottom: 1px solid #E5E5E5;
+        margin-bottom: 0;
+        background-color: white !important;
+      }
+    
+      .navbar-right li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-top: 8px;
+      }
+    
+      .navbar-nav > li > a,
+      .navbar-nav > li > button {
+        font-weight: bold;
+        color: #4A4A4A !important;
+        font-size: 12px; /* Reduced font size for responsiveness */
+        background: transparent;
+        border: none;
+      }
+    
+      .navbar-nav > li > a:hover,
+      .navbar-nav > li > button:hover {
+        color: #0D6EFD !important;
+      }
+    
+      .dropdown-menu > li > a {
+        font-weight: bold;
+        font-size: 12px; /* Reduced font size for responsiveness */
+      }
+    
+      .bootstrap-select .dropdown-toggle {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        color: #4A4A4A;
+        font-weight: bold;
+        font-size: 12px; /* Reduced font size for responsiveness */
+      }
+    
+      .bootstrap-select .dropdown-toggle:focus,
+      .bootstrap-select .dropdown-toggle:active {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+    
+      .caret {
+        margin-left: 4px;
+      }
+    
+    
+        .header-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px 20px; /* Reduced padding for responsiveness */
+          gap: 15px;        /* Reduced gap for responsiveness */
+          flex-wrap: wrap;
+          border-bottom: 1px solid #E5E5E5;
+          background-color: white;
+        }
+    
+        .search-bar {
+          display: flex;
+          align-items: center;
+          flex: 1;
+          max-width: 600px;
+          min-width: 250px;
+          border: 2px solid #0D6EFD;
+          border-radius: 5px;
+          overflow: hidden;
+        }
+    
+        .search-bar input {
+          flex: 1;
+          padding: 6px;      /* Reduced padding for responsiveness */
+          border: none;
+          outline: none;
+          font-size: 12px;  /* Reduced font size for responsiveness */
+        }
+    
+        .search-bar select {
+          border: none;
+          border-left: 1px solid #0D6EFD;
+          border-right: 1px solid #0D6EFD;
+          padding: 6px;      /* Reduced padding for responsiveness */
+          outline: none;
+          background: white;
+          font-size: 12px;  /* Reduced font size for responsiveness */
+        }
+    
+        .search-bar button {
+          border: none;
+          padding: 7px 8px;    /* Reduced padding for responsiveness */
+          background-color: #0D6EFD;
+          color: white;
+          cursor: pointer;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          white-space: nowrap;
+          font-size: 12px;  /* Reduced font size for responsiveness */
+        }
+    
+        .icon-row {
+          display: flex;
+          gap: 10px;      /* Reduced gap for responsiveness */
+        }
+    
+        .icon-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          color: #8B96A5;
+          cursor: pointer;
+          transition: transform 0.2s, color 0.2s;
+        }
+    
+        .icon-item:hover {
+          color: #6C7581;
+          transform: scale(1.1);
+        }
+    
+        .icon-item p {
+          margin: 3px 0 0;  /* Reduced margin for responsiveness */
+          font-size: 10px;  /* Reduced font size for responsiveness */
+        }
+    
+        /* Responsive Search Bar */
+        @media (max-width: 768px) {
+          .header-row {
+            flex-direction: column;
+            gap: 10px;    /* Reduced gap for responsiveness */
+          }
+    
+          .search-bar {
+            width: 100%;
+            max-width: 100%;
+            justify-content: center;
+          }
+    
+          .search-bar select {
+            display: none;  /* Hide select on small screens */
+          }
+          .icon-item i {
+            font-size: 16px; /* Reduced icon size for very small screens */
+          }
+          .icon-item p{
+            font-size: 10px;
+          }
+        }
+    
+        
+
+  /*--------------------------------------- part 1------------------------------------------*/
+  .div1 {
+            margin: 0 auto; /* Changed margin to auto to center horizontally */
+            padding: 0;
+            
+            background-color: white;
+            max-width: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main {
+            border: 2px solid #DEE2E7;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            background-color: white;
+            width: 100%;
+            max-width: 1200px;
+            height: auto; /* Changed height to auto */
+        }
+
+        /* Left Section */
+        .left-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .left-section button {
+            font-size: 16px;
+            color: #4B5563;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            text-align: left;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .left-section button:hover {
+            background-color: #E5F1FF;
+            font-weight: bold;
+        }
+
+        /* Middle Section */
+        .middle-section {
+            flex: 3;
+            background: url("public/main11.png") center/cover no-repeat;
+            display: flex;
+            align-items: flex-start;
+            padding: 10px;
+            min-height: 200px; /* Added a minimum height */
+        }
+
+        .text-content {
+            color: black;
+            max-width: 50%;
+            padding: 20px; /* Reduced padding */
+        }
+
+        h2 {
+            font-size: 24px; /* Reduced font size */
+            margin: 0;
+            font-weight: normal;
+        }
+
+        .bold-text {
+            font-weight: bold;
+        }
+
+        .learn-more {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 16px; /* Reduced padding */
+            background: white;
+            text-decoration: none;
+            color: black;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-size: 14px; /* Reduced font size */
+        }
+
+        /* Right Section */
+        .right-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 300px;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .profile {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn {
+            display: block;
+            text-decoration: none;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px; /* Reduced font size */
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-secondary {
+            border: #DEE2E7;
+            background: white;
+            color: #007bff;
+        }
+
+        .offer, .disabled {
+            padding: 15px; /* Reduced padding */
+            margin: 10px 0;
+            border-radius: 5px;
+            text-align: left;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 16px; /* Reduced font size */
+            display: block;
+        }
+
+        .offer {
+            background: #e67e22;
+            color: white;
+        }
+
+        .disabled {
+            background: #ccc;
+            color: white;
+        }
+
+        .login1 {
+            padding: 10px; /* Reduced padding */
+            margin: 10px 0;
+            border-radius: 5px;
+            text-align: left;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 16px; /* Reduced font size */
+            display: block;
+            background-color: #E3F0FF;
+        }
+
+        .login {
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .login p {
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .main {
+                flex-direction: column;
+                width: 95%;
+            }
+            .left-section {
+                width: 100%;
+            }
+            .middle-section {
+                width: 100%;
+                max-width: 100%;
+            }
+            .right-section {
+                width: 100%;
+                max-width: 100%;
+            }
+            .text-content{
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-section button {
+                font-size: 14px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            .learn-more {
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+            .offer, .disabled, .login1{
+                font-size: 14px;
+                padding: 10px;
+            }
+            .btn{
+                font-size: 12px;
+                padding: 8px;
+            }
+        }
+
+  /*--------------------------------------- part 2------------------------------------------*/
+
+/*    .div2{
+
+      background-color: white;
+
+
+    }*/
+
+    .container2 {
+      display: flex;
+      gap: 0;
+      border: 2px solid #DEE2E7;
+      background-color: white;
+
+      overflow-x: auto;
+      max-width: 1200px;
+      margin: 20px auto;
+      border-radius: 8px;
+    }
+
+    .grid-item {
+      border-right: 1px solid #DEE2E7;
+      border-bottom: 1px solid #DEE2E7;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 190px;
+      background-color: white;
+    }
+
+    .deal {
+      align-items: flex-start;
+      min-width: 250px;
+    }
+
+    .deal h2 {
+      margin: 0 0 4px;
+      font-size: 18px;
+    }
+
+    .para {
+      color: #8B96A5;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .time-container {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 8px;
+      margin-top: 20px;
+      overflow-x: auto;
+    }
+
+    .time-box {
+      background-color: #333333;
+      color: white;
+      padding: 3px 2px;
+      border-radius: 3px;
+      text-align: center;
+      font-size: 10px;
+      line-height: 1.5;
+      min-width: 30px;
+      white-space: nowrap;
+    }
+
+    .image-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 5px;
+      padding: 5px;
+    }
+
+    .image-item p {
+      background-color: #FFE3E3;
+      color: #EB001B;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .image-item h5 {
+      font-size: 14px;
+      color: #302e2e;
+      margin: 0;
+      text-align: center;
+      padding: 5px;
+    }
+
+    .image-item p {
+      margin-top: 0;
+    }
+
+    .container2::-webkit-scrollbar {
+      display: none;
+    }
+
+    .container2 {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    @media (max-width: 768px) {
+      .container2 {
+        flex-direction: column;
+        overflow-x: auto;
+        height: auto;
+      }
+      .grid-item {
+        border-right: none;
+        width: 100%;
+      }
+      .time-container {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .deal {
+        min-width: 100%;
+        align-items: center;
+        text-align: center;
+      }
+      .deal h2 {
+        font-size: 16px;
+      }
+      .para {
+        font-size: 12px;
+      }
+      .time-box {
+        font-size: 8px;
+        padding: 2px 1px;
+        min-width: 25px;
+      }
+      .image-item img {
+        width: 80px;
+        height: 80px;
+      }
+      .image-item h5 {
+        font-size: 12px;
+      }
+      .image-item p {
+        font-size: 12px;
+        padding: 4px 10px;
+      }
+    }
+  /*--------------------------------------- part 3------------------------------------------*/
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+
+    .table-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding-top: 20px;
+      flex-direction: column;
+      max-width: 1200px;
+    }
+
+    table {
+      width: 100%;
+      height: 40vh;
+      border-collapse: collapse;
+      border-spacing: 0;
+      margin-bottom: 0;
+    }
+
+    td {
+      padding: 0;
+      vertical-align: top;
+    }
+    .home {
+        background-image: url("/public/image92.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 1px solid #DEE2E7;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .home1 {
+        background-image: url("/public/image98.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 1px solid #DEE2E7;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .homediv {
+      max-width: 180px;
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+    }   
+    .home h1 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+    }
+    .home1 h1 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    .home1 button {
+        margin-top: 10px;
+        padding: 8px 16px;
+        font-size: 14px;
+        background-color: #fff;
+        color: #333;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+    }
+    
+    .home1 button:hover {
+        background-color: #f0f0f0;
+    }
+    
+    .home button {
+        margin-top: 10px;
+        padding: 8px 16px;
+        font-size: 14px;
+        background-color: #fff;
+        color: #333;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+    }
+    
+    .home button:hover {
+        background-color: #f0f0f0;
+    }
+    
+    .product-main {
+      border: 1px solid #DEE2E7;
+      background-color: #fff;
+      padding: 6px 4px;
+      height: 100%;
+      padding-left: 20px;
+      display: flex; /* Added to use flexbox */
+      flex-direction: column;
+      justify-content: space-between; /* To distribute space between elements */
+    }
+
+    .product-main h4 {
+      margin: 16px 0 4px 0;
+      font-size: 16px;
+      color: #222;
+    }
+
+    .product-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .product-box p {
+      margin: 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .product-box img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    /* Add this CSS rule to make the home div take the full width of its container */
+    .home {
+        width: 100%;
+    }
+    .home1{
+        width: 100%;
+    }
+  /*--------------------------------------- part 4------------------------------------------*/
+
+ .div5 {
+
+  background: linear-gradient(to right, rgba(44, 124, 241, 0.7), rgba(0, 209, 255, 0.7)), url('public/image102.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+}
+
+.container5 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+p {
+  color: #FFFFFF;
+  padding-left: 20px;
+}
+
+h2 {
+  padding-left: 20px;
+}
+
+h2:first-of-type {
+  color: #FFFFFF;
+  padding-top: 50px;
+}
+
+.second-h2 {
+  color: black;
+}
+
+.quote-form {
+  font-family: 'Inter', sans-serif;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 320px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-left: 20px;
+}
+
+.quote-form h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.quote-form input,
+.quote-form textarea,
+.quote-form select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+.quote-form textarea {
+  color: #8B96A5;
+}
+
+::placeholder {
+  color: #1c1c1c;
+}
+
+.quote-form .inline {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+.quote-form .inline input,
+.quote-form .inline select{
+    width: 48%;
+}
+
+.quote-form button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to right, #127FFF, #0067FF);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+.quote-form button:hover {
+  opacity: 0.9;
+}
+@media (max-width: 768px) {
+    .container5{
+        flex-direction: column;
+        width: 95%;
+    }
+    .quote-form{
+        margin-left: 0;
+        margin-top: 20px;
+        width: 90%;
+    }
+    body{
+        align-items: flex-start;
+    }
+}
+@media (max-width: 480px){
+    .quote-form .inline {
+        flex-direction: column;
+    }
+    .quote-form .inline input,
+    .quote-form .inline select{
+        width: 100%;
+    }
+}
+  /*--------------------------------------- part 5------------------------------------------*/
+
+
+    h2 {
+      margin-bottom: 20px;
+      text-align: center; /* Center the heading */
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+      gap: 20px;
+      max-width: 1200px; /* Add a maximum width */
+      margin: 0 auto; /* Center the grid horizontally */
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      height: auto;
+      text-align: left;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 10px;
+      align-self: center;
+    }
+
+    .price {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .desc {
+      color: #555;
+      font-size: 0.9em;
+    }
+
+    /* Media query for smaller screens */
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+    }
+
+    /* Media query for even smaller screens */
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  /*--------------------------------------- part 6------------------------------------------*/
+
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .services {
+        max-width: 1200px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .service {
+      width: 270px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .service img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      filter: brightness(0.7);
+      transition: filter 0.3s ease;
+    }
+
+    .service img:hover {
+      filter: brightness(0.9);
+    }
+
+    .service-title {
+      padding: 10px;
+      font-weight: bold;
+      text-align: left;
+      padding-left: 15px;
+    }
+
+    .search-icon {
+      border: 2px solid  white;
+      position: absolute;
+      top: 100px;
+      right: 10px;
+      font-size: 12px;
+      color: #333;
+      background-color: rgba(209, 231, 255,1);
+      padding: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .search-icon:hover {
+      padding: 14px;
+      font-size: 16px;
+      border: 2px solid  white;
+      background-color: rgba(209, 231, 255,0.8);
+    }
+
+    @media (max-width: 768px) {
+      .service {
+        width: 45%;
+        margin-bottom: 20px;
+      }
+      .services {
+        justify-content: space-around;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .service {
+        width: 100%;
+      }
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
+      .search-icon {
+        top: 15px;
+        right: 15px;
+        font-size: 20px;
+        padding: 8px;
+      }
+    }
+  /*--------------------------------------- part 7------------------------------------------*/
+
+
+        h2 {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* Container for all supplier divs */
+        .suppliers {
+            display: flex;
+            flex-wrap: wrap; /* Allows items to wrap to the next line */
+            gap: 20px; /* Adds space between items */
+            background-color: #E5E7EB; /* Gray 200 background */
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 1200px;
+        }
+
+        .supplier {
+            display: flex;
+            align-items: center; /* Aligns the image and paragraph vertically */
+            text-align: left;
+            width: 22%; /* Adjust width to ensure a reasonable number of items per row */
+            background-color: #E5E7EB; /* Gray 200 background */
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        img {
+            width: 50px; /* Image width */
+            height: auto;
+            margin-right: 10px; /* Adds space between image and text */
+        }
+
+        p {
+            margin: 0;
+            color: black; /* Text color black for better contrast */
+        }
+
+        /* Color change for text after <br> tag */
+        p br + span {
+            color: #8B96A5; /* Color after <br> tag */
+        }
+
+        /* Media query for small screens (e.g., mobile phones) */
+        @media (max-width: 768px) {
+            .supplier {
+                width: 45%; /* Make each supplier take up half the width on small screens */
+                margin-bottom: 10px;
+            }
+             .suppliers{
+                gap: 10px;
+            }
+        }
+
+        /* Media query for very small screens (e.g., older phones) */
+        @media (max-width: 480px) {
+            .supplier {
+                width: 100%; /* Make each supplier take up full width on very small screens */
+            }
+            img {
+                width: 40px;
+            }
+            p{
+                font-size: 14px;
+            }
+        }
+        /*--------------------------------------- footer------------------------------------------*/
+
+
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+.subscribe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.subscribe input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 250px;
+  text-align: center;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/732/732200.png');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 16px;
+  padding-left: 35px;
+}
+
+.subscribe button {
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.footer2 {
+  background-color: white;
+  padding: 40px 20px;
+  color: black;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-left {
+  max-width: 500px;
+}
+
+.footer-left img {
+  width: 120px;
+  display: block;
+}
+
+.footer-left p {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #666;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #999;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+}
+
+.get-app {
+  text-align: center;
+}
+
+.get-app a {
+  display: inline-block;
+  margin: 5px;
+}
+
+.get-app img {
+  width: 120px;
+  display: block;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+
+
+  .subscribe {
+      flex-direction: column;
+      align-items: stretch;
+  }
+
+  .subscribe input, .subscribe button {
+      width: 100%;
+      margin: 5px 0;
+  }
+  
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+  
+  .footer-section {
+      margin-top: 20px;
+  }
+  
+  .footer-left {
+      text-align: center;
+      margin-bottom: 20px;
+  }
+
+  .get-app {
+      text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-left img {
+      width: 100%;
+  }
+}
+</style>
+<body>
+
+<!----------------------------------------- header------------------------------------------>
+    
+<header>
+  <div class="header-row">
+    <div>
+      <img src="/public/logo-colored.svg" alt="brand logo" height="40">
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search">
+      <select>
+        <option>All Category</option>
+        <option>Electronics</option>
+        <option>Fashion</option>
+        <option>Automobiles</option>
+      </select>
+      <button>Search</button>
+    </div>
+
+    <div class="icon-row">
+      <div class="icon-item">
+        <i data-feather="user" title="Profile"></i>
+        <p>Profile</p>
+      </div>
+      <div class="icon-item">
+        <i data-feather="message-square" title="Messages"></i>
+        <p>Message</p>
+      </div>
+      <div class="icon-item">
+        <i data-feather="shopping-bag" title="Orders"></i>
+        <p>Orders</p>
+      </div>
+      <div class="icon-item">
+        <i data-feather="shopping-cart" title="My Cart"></i>
+        <p><a href="/cart.html" style="color: #8B96A5;" >My Cart</a></p>
+        
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarContent">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+  
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="nav navbar-nav">
+            <li><a href="/list.html"><i>☰</i>All Category</a></li>
+            <li><a href="#">Hot Offers</a></li>
+            <li><a href="#">Gift Boxes</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Menu Items</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Help <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Customer Support</a></li>
+                <li><a href="#">FAQs</a></li>
+              </ul>
+            </li>
+          </ul>
+  
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <select class="selectpicker" data-width="150px">
+                <option>English (USD)</option>
+                <option>Deutsch (EUR)</option>
+                <option>Français (EUR)</option>
+                <option>Español (EUR)</option>
+                <option>हिन्दी (INR)</option>
+                <option>العربية (SAR)</option>
+              </select>
+            </li>
+  
+            <li>
+              <select class="selectpicker countrypicker" data-flag="true" data-width="150px" data-live-search="true"></select>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</header>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select-country/dist/js/bootstrap-select-country.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('.selectpicker').selectpicker();
+  });
+</script>
+
+<script>
+  feather.replace();
+</script>
+<!----------------------------------------- header------------------------------------------>
+    <!----------------------------------------- part 1------------------------------------------>
+    <div style="height: 20px;"></div>
+<div class="div1">
+    <div class="main">
+        <div class="left-section">
+            <button>Automobiles</button>
+            <button>Clothes and wear</button>
+            <button>Home interiors</button>
+            <button>Tools, equipments</button>
+            <button>Sports and outdoor</button>
+            <button>Animal and pets</button>
+            <button>Machinery tools</button>
+            <button>More category</button>
+        </div>
+
+        <div class="middle-section">
+            <div class="text-content">
+                <h2>Latest trending <br><span class="bold-text">Electronic items</span></h2>
+                <a href="#" class="learn-more">Learn more</a>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="container">
+                <div class="login1">
+                    <div class="login">
+                        <div class="profile">
+                            <img src="/public/Avatar.png" alt="Profile Avatar">
+                        </div>
+                        <p>Hi, user<br>Let's get started</p>
+                    </div>
+                    <a href="#" class="btn btn-primary">Join now</a>
+                    <a href="#" class="btn btn-secondary">Log in</a>
+                </div>
+                <div class="offer"> Get US $10 off <br> with a new <br> supplier </div>
+                <div class="disabled">Send quotes with <br> supplier <br> preferences </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!----------------------------------------- part 2------------------------------------------>
+    <div class="div2">
+  <div class="container2">
+    <div class="grid-item deal">
+      <h2>Deals and Offers</h2>
+      <p class="para">Hygiene equipments</p>
+      <div class="time-container">
+        <div class="time-box"><b>04</b> <br /> Days</div>
+        <div class="time-box"><b>13</b> <br /> Hour</div>
+        <div class="time-box"><b>34</b> <br /> Min</div>
+        <div class="time-box"><b>56</b> <br /> Sec</div>
+      </div>
+    </div>
+
+    <div class="grid-item image-item">
+      <img src="/public/8.jpg" alt="smart watches" />
+      <h5>Smart Watches</h5>
+      <p>-25% off</p>
+    </div>
+    <div class="grid-item image-item">
+      <img src="/public/7.jpg" alt="laptops" />
+      <h5>Laptops</h5>
+      <p>-15% off</p>
+    </div>
+    <div class="grid-item image-item">
+      <img src="/public/6.jpg" alt="gopro camera" />
+      <h5>GoPro Camera</h5>
+      <p>-40% off</p>
+    </div>
+    <div class="grid-item image-item">
+      <img src="/public/5.jpg" alt="headphones" />
+      <h5>Headphones</h5>
+      <p>-25% off</p>
+    </div>
+    <div class="grid-item image-item">
+      <img src="/public/4.jpg" alt="canon cameras" />
+      <h5>Canon Cameras</h5>
+      <p>-25% off</p>
+    </div>
+  </div>
+  </div>
+    <!----------------------------------------- part 3------------------------------------------>
+    <div style="align-items: center; display : flex;justify-content: center;">
+    <div class="table-wrapper"> 
+        <table>
+          <tr>
+            <td rowspan="2">
+              <div class="home">
+                <div class="homediv">Home and Outdoor</div>
+                <button>Source now</button>
+              </div>
+            </td>
+            
+            <td>
+              <div class="product-main">
+                <h4>Soft chairs</h4>
+                <div class="product-box">
+                  <p>From<br>USD 19</p>
+                  <img src="/public/interior/1.jpg" alt="Soft chair">
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="product-main">
+                <h4>Sofa & chair</h4>
+                <div class="product-box">
+                  <p>From<br>USD 19</p>
+                  <img src="public/interior/6.jpg" alt="Sofa & chair">
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="product-main">
+                <h4>Kitchen dishes</h4>
+                <div class="product-box">
+                  <p>From<br>USD 19</p>
+                  <img src="public/interior/5.jpg" alt="Kitchen dishes">
+                </div>
+              </div>
+            </td>
+            <td>
+                <div class="product-main">
+                  <h4>Kitchen dishes</h4>
+                  <div class="product-box">
+                    <p>From<br>USD 19</p>
+                    <img src="public/interior/3.jpg" alt="Kitchen dishes">
+                  </div>
+                </div>
+              </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="product-main">
+                <h4>Kitchen mixer</h4>
+                <div class="product-box">
+                  <p>From<br>USD 19</p>
+                  <img src="public/interior/9.jpg" alt="Kitchen mixer">
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="product-main">
+                <h4>Blenders</h4>
+                <div class="product-box">
+                  <p>From<br>USD 19</p>
+                  <img src="public/interior/8.jpg" alt="Blenders">
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="product-main">
+                <h4>Home applaince</h4>
+                <div class="product-box">
+                  <p>From<br>USD 19</p>
+                  <img src="public/interior/7.jpg" alt="Home applaince">
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="product-main">
+                <h4>Coffee maker</h4>
+                <div class="product-box">
+                  <p>From<br>USD 10</p>
+                  <img src="public/interior/4.jpg" alt="Coffee maker">
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <div style="height: 20px;"></div>
+        <table>
+          <tr>
+            <td rowspan="2">
+              <div class="home1">
+                <div class="homediv">Consumer electronic and gadgets</div>
+                <button>Source now</button>
+              </div>
+            </td>
+            
+            
+            <td>
+              <div class="product-main">
+                <h4>Smart watches</h4>
+                <div class="product-box">
+                  <p>From<br>USD 19</p>
+                  <img src="public/tech/8.jpg" alt="Smart watches">
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="product-main">
+                <h4>Cameras</h4>
+                <div class="product-box">
+                  <p>From<br>USD 89</p>
+                  <img src="public/tech/6.jpg" alt="Cameras">
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="product-main">
+                <h4>Headphones</h4>
+                <div class="product-box">
+                  <p>From<br>USD 10</p>
+                  <img src="public/tech/9.jpg" alt="Headphones">
+                </div>
+              </div>
+            </td>
+            <td>
+                <div class="product-main">
+                  <h4>Smart watches</h4>
+                  <div class="product-box">
+                    <p>From<br>USD 90</p>
+                    <img src="public/tech/10.jpg" alt="Smart watches">
+                  </div>
+                </div>
+              </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="product-main">
+                <h4>Gaming set</h4>
+                <div class="product-box">
+                  <p>From<br>USD 35</p>
+                  <img src="public/tech/5.jpg" alt="Gaming set">
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="product-main">
+                <h4>Laptop & PC</h4>
+                <div class="product-box">
+                  <p>From<br>USD 340</p>
+                  <img src="public/tech/7.jpg" alt="Laptop & PC">
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="product-main">
+                <h4>Smartphones</h4>
+                <div class="product-box">
+                  <p>From<br>USD 19</p>
+                  <img src="public/tech/2.jpg" alt="Smartphones">
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="product-main">
+                <h4>Electric kattle</h4>
+                <div class="product-box">
+                  <p>From<br>USD 240</p>
+                  <img src="public/tech/1.jpg" alt="Electric kattle">
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      </div>
+    
+    <!----------------------------------------- part 4------------------------------------------>
+    <div style="padding-top: 20px;">
+    <div class="div5">
+        <div class="container5">
+          <div>
+            <h2>An easy way to send <br /> requests to all suppliers</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing <br />elit, sed do eiusmod tempor incididunt</p>
+          </div>
+          <div class="quote-form">
+            <h3 class="second-h2">Send quote to suppliers</h3>
+            <input type="text" placeholder="What item you need?" />
+            <textarea placeholder="Type more details"></textarea>
+            <div class="inline">
+              <input type="number" placeholder="Quantity" />
+              <select>
+                <option>Pcs</option>
+                <option>Boxes</option>
+                <option>Kgs</option>
+              </select>
+            </div>
+            <button>Send inquiry</button>
+          </div>
+        </div>
+        </div>
+        </div>
+    <!----------------------------------------- part 5------------------------------------------>
+    <h2 style="color: black;text-align: left;padding-left:40px;"><b>Recommended items</b></h2>
+    <div class="grid">
+      <div class="card">
+        <img src="public/cloth/1.jpg" alt="T-shirt">
+        <div>
+          <div class="price">$10.30</div>
+          <div class="desc">T-shirts with multiple <br>colors, for men</div>
+        </div>
+      </div>
+  
+      <div class="card">
+        <img src="public/cloth/3.jpg" alt="Winter coat">
+        <div>
+          <div class="price">$10.30</div>
+          <div class="desc">Jeans shorts for men,<br> blue color</div>
+        </div>
+      </div>
+  
+      <div class="card">
+        <img src="public/cloth/7.jpg" alt="Coat">
+        <div>
+          <div class="price">$12.50</div>
+          <div class="desc">blue winter coat,<br> medium size</div>
+        </div>
+      </div>
+  
+      <div class="card">
+        <img src="public/cloth/6.jpg" alt="Bag">
+        <div>
+          <div class="price">$34.00</div>
+          <div class="desc">Leather wallet</div>
+        </div>
+      </div>
+  
+      <div class="card">
+        <img src="public/cloth/5.jpg" alt="Wallet">
+        <div>
+          <div class="price">$99.00</div>
+          <div class="desc">Jeans bag for travel <br>for men</div>
+        </div>
+      </div>
+  
+      <div class="card">
+        <img src="public/cloth/4.jpg" alt="T-shirt">
+        <div>
+          <div class="price">$10.30</div>
+          <div class="desc">shorts</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="public/9.jpg" alt="Winter coat">
+        <div>
+          <div class="price">$10.30</div>
+          <div class="desc">headset for gaming <br>with mic</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="public/cloth/5.jpg" alt="Coat">
+        <div>
+          <div class="price">$12.50</div>
+          <div class="desc">Jeans bag for travel <br>for men</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="public/interior/3.jpg" alt="Bag">
+        <div>
+          <div class="price">$34.00</div>
+          <div class="desc">pots</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="public/10.jpg" alt="Wallet">
+        <div>
+          <div class="price">$99.00</div>
+          <div class="desc">steel jugs</div>
+        </div>
+      </div>
+    </div>
+    <!----------------------------------------- part 6------------------------------------------>
+    <h2 style="color: black;text-align: left;padding-top: 20px;padding-left:40px;"><b>Our extra services</b></h2>
+    <div style="align-items: center; display : flex;justify-content: center;">
+    <div class="services">
+      <div class="service">
+        <img src="public/image108.png" alt="Source from Industry Hubs">
+        <i class="fas fa-search search-icon"></i>
+        <div class="service-title">Source from <br> Industry Hubs</div>
+      </div>
+      <div class="service">
+        <img src="public/image104.png" alt="Customize Your Products">
+        <i class="fas fa-cogs search-icon" style="top: 100px; right: 10px;"></i>
+        <div class="service-title">Customize Your <br> Products</div>
+      </div>
+      <div class="service">
+        <img src="public/image106.png" alt="Fast, reliable shipping">
+        <i class="fas fa-shipping-fast search-icon" style="top: 100px; right: 10px;"></i>
+        <div class="service-title">Fast, reliable shipping <br> by ocean or air</div>
+      </div>
+      <div class="service">
+        <img src="public/image107.png" alt="Product monitoring">
+        <i class="fas fa-eye search-icon" style="top: 100px; right: 10px;"></i>
+        <div class="service-title">Product monitoring <br> and inspection</div>
+      </div>
+    </div>
+    </div>
+    <!----------------------------------------- part 7------------------------------------------>
+    <h2 style="color: black;text-align: left;padding-top: 20px;padding-left:40px;"><b>Suppliers by region</b></h2>
+    <div style="align-items: center; display : flex;justify-content: center;">
+
+
+    <div class="suppliers">
+        <div class="supplier">
+            <img src="public\flags\dubai.png" alt="dubai">
+            <p>Arabic Emirates <br><span>shopname.ae</span></p>
+        </div>
+        <div class="supplier">
+            <img src="public\flags\australia.png" alt="australia">
+            <p>Australia  <br><span>shopname.ae</span></p>
+        </div>
+        <div class="supplier">
+            <img src="public\flags\usa.png" alt="usa">
+            <p>United States<br><span>shopname.ae</span></p>
+        </div>
+        <div class="supplier">
+            <img src="public\flags\russia.png" alt="russia">
+            <p>Russia <br><span>shopname.ae</span></p>
+        </div>
+
+        <div class="supplier">
+            <img src="public\flags\scotland.png" alt="scotland">
+            <p>Denmark<br><span>denmark.com.dk</span></p>
+        </div>
+        <div class="supplier">
+            <img src="public\flags\france.png" alt="france">
+            <p>France <br><span>shopname.com.fr</span></p>
+        </div>
+        <div class="supplier">
+            <img src="public\flags\dubai.png" alt="dubai">
+            <p> Arabic Emirates<br><span>shopname.ae</span></p>
+        </div>
+        <div class="supplier">
+            <img src="public\flags\china.png" alt="china">
+            <p>China <br><span>shopname.ae</span></p>
+        </div>
+    </div>
+    </div>
+
+    <!----------------------------------------- footer------------------------------------------>
+    
+    <footer class="footer"> 
+      <h2 style="color: black;">Subscribe to our Newsletter</h2>
+      <p>Get daily news on upcoming offers from many suppliers all over the world</p>
+      <div class="subscribe">
+          <input type="email" placeholder="Enter your email">
+          <button>Subscribe</button>
+      </div>
+  </footer>
+ 
+  <footer class="footer2">
+      <div class="footer-container">
+          <div class="footer-left">
+              <img src="public/logo-colored.svg" alt="Brand Logo">
+              <div style="font-size: 18px;width: 300px;;padding-right: 40px;
+  color: #999;">Best information about the company goes here But now lorem ipsum is.</div>
+             
+              <div class="social-icons">
+                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="far fa-envelope"></i></a>
+              </div>
+          </div>
+          <div class="footer-section">
+              <h4>About</h4>
+              <ul>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Find Store</a></li>
+                  <li><a href="#">Categories</a></li>
+                  <li><a href="#">Blogs</a></li>
+              </ul>
+          </div>
+          <div class="footer-section">
+              <h4>Partnership</h4>
+              <ul>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Find Store</a></li>
+                  <li><a href="#">Categories</a></li>
+                  <li><a href="#">Blogs</a></li>
+              </ul>
+          </div>
+          <div class="footer-section">
+              <h4>Information</h4>
+              <ul>
+                  <li><a href="#">Help Center</a></li>
+                  <li><a href="#">Money Refund</a></li>
+                  <li><a href="#">Shipping</a></li>
+                  <li><a href="#">Contact Us</a></li>
+              </ul>
+          </div>
+          <div class="footer-section">
+              <h4>For Users</h4>
+              <ul>
+                  <li><a href="#">Login</a></li>
+                  <li><a href="#">Register</a></li>
+                  <li><a href="#">Settings</a></li>
+                  <li><a href="#">My Orders</a></li>
+              </ul>
+          </div>
+          <div class="footer-section get-app">
+              <h4>Get App</h4>
+              <a href="#"><img src="public/apple.png" alt="Download on the App Store"></a>
+              <a href="#"><img src="public/google.png" alt="Get it on Google Play"></a>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          &copy; 2023 Ecommerce.
+      </div>
+  </footer>
+
+  </body>
+  
+</html>
