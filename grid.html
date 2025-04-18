@@ -82,7 +82,6 @@
     margin-left: 4px;
   }
 
-
     .header-row {
       display: flex;
       align-items: center;
@@ -349,11 +348,9 @@
       background-color: #2563eb;
     }
 
-
     .stars {
       color: orange;
     }
-
 
     .main{
       display: flex;
@@ -460,6 +457,13 @@
     padding: 10px;
     box-sizing: border-box;
   }
+  
+  /* Added media query for 3 items per row on larger screens */
+  @media (min-width: 1200px) {
+    .product-list.grid-view {
+      grid-template-columns: repeat(3, 1fr); /* 3 items per row on large screens */
+    }
+  }
 
   .product-item img {
     width: 200px;
@@ -471,8 +475,12 @@
   .product-info {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Align items to the start (left) */
     width: 100%;
+    text-align: left; /* Ensure text is aligned left */
+  }
+  .product-info p{
+    color: #606060;
   }
 
   .price {
@@ -573,9 +581,18 @@
   .like-btn:hover i {
     color: #ff4081;
   }
+  .order-info {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Reduced gap between elements */
+  }
 
+  .order-info span {
+    font-size: 12px; /* Reduced font size for the number of orders */
+    color: #666;
+  }
 
-
+  
 
     @media (max-width: 768px) {
     .main {
@@ -589,7 +606,6 @@
    
   }
           /*--------------------------------------- footer------------------------------------------*/
-
 
 
 .footer {
@@ -647,6 +663,7 @@
 
 .footer-left {
   max-width: 500px;
+  margin-right: 20px;
 }
 
 .footer-left img {
@@ -722,7 +739,6 @@
 @media (max-width: 768px) {
 
 
-
   .subscribe {
       flex-direction: column;
       align-items: stretch;
@@ -763,8 +779,6 @@
 </head>
 <body>
   
-<!----------------------------------------- header------------------------------------------>
-    
 <header>
   <div class="header-row">
     <div>
@@ -833,8 +847,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li>
               <select class="selectpicker" data-width="150px">
-                <option>English (USD)</option>
-                <option>Deutsch (EUR)</option>
+                <option>English (USD)</option><option>Deutsch (EUR)</option>
                 <option>Français (EUR)</option>
                 <option>Español (EUR)</option>
                 <option>हिन्दी (INR)</option>
@@ -846,7 +859,7 @@
               <select class="selectpicker countrypicker" data-flag="true" data-width="150px" data-live-search="true"></select>
             </li>
           </ul>
-        </div>
+</div>
       </div>
     </nav>
 </header>
@@ -864,8 +877,6 @@
 <script>
   feather.replace();
 </script>
-<!----------------------------------------- header------------------------------------------>
-
 <div class="body">
   <div class="main">
     <div class="sidebar">
@@ -980,7 +991,7 @@
         <i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star empty"></i><i class="fas fa-star empty"></i>
       </div></label>
       <label class="rating-option" style="display: flex;"><input type="checkbox" name="rating"><div class="stars">
-        <i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star empty"></i><i class="fas fa-star empty"></i><i class="fas fa-star empty"></i>
+        <i class="fas fa-star filled"></i><i class="fas fa-star empty"></i><i class="fas fa-star empty"></i><i class="fas fa-star empty"></i><i class="fas fa-star empty"></i>
       </div></label>
     </div>
   </div>
@@ -1023,37 +1034,39 @@
           <img src="/public/tech/1.jpg" alt="Canon Camera">
           <div class="product-info">
             <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-              <span class="price">$998.00</span>
+              <div>
+                <span class="price">$998.00</span>
+                <span class="old-price">$1128.00</span>
+              </div>
               <button class="like-btn" onclick="toggleLike(this)">
                 <i class="far fa-heart"></i>
               </button>
             </div>
-            <div>
-              <span class="stars">★★★★☆</span> 7.5 |
-              154 orders
-              <span class="free-shipping">Free Shipping</span>
+            <div class="order-info">
+              <span class="stars" style="color: orange;">★★★★☆</span>
+              <span style="color: orange;">7.5</span>
             </div>
-            <h3>Canon Camera EOS 2000, Black 10x zoom</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="/detail.html" class="details-link">View details</a>
+            <p >GoPro HERO6 4K Action <br>Camera - Black</p>
+             <a href="/detail.html" class="details-link">View details</a>
           </div>
         </div>
         <div class="product-item">
           <img src="/public/tech/4.jpg" alt="Canon Camera">
           <div class="product-info">
             <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-              <span class="price">$998.00</span>
+              <div>
+                <span class="price">$998.00</span>
+                <span class="old-price">$1128.00</span>
+              </div>
               <button class="like-btn" onclick="toggleLike(this)">
                 <i class="far fa-heart"></i>
               </button>
             </div>
-            <div>
-              <span class="stars">★★★★☆</span> 7.5 |
-              154 orders
-              <span class="free-shipping">Free Shipping</span>
+            <div class="order-info">
+              <span class="stars" style="color: orange;">★★★★☆</span>
+              <span style="color: orange;">7.5</span>
             </div>
-            <h3>Canon Camera EOS 2000, Black 10x zoom</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>GoPro HERO6 4K Action <br>Camera - Black</p>
             <a href="/detail.html" class="details-link">View details</a>
           </div>
         </div>
@@ -1066,13 +1079,11 @@
                 <i class="far fa-heart"></i>
               </button>
             </div>
-            <div>
-              <span class="stars">★★★★☆</span> 7.5 |
-              154 orders
-              <span class="free-shipping">Free Shipping</span>
+            <div class="order-info">
+              <span class="stars" style="color: orange;">★★★★☆</span>
+              <span style="color: orange;">7.5</span>
             </div>
-            <h3>Canon Camera EOS 2000, Black 10x zoom</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>GoPro HERO6 4K Action <br>Camera - Black</p>
             <a href="/detail.html" class="details-link">View details</a>
           </div>
         </div>
@@ -1080,18 +1091,19 @@
           <img src="/public/tech/2.jpg" alt="Canon Camera">
           <div class="product-info">
             <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-              <span class="price">$998.00</span>
+              <div>
+                <span class="price">$998.00</span>
+                <span class="old-price">$1128.00</span>
+              </div>
               <button class="like-btn" onclick="toggleLike(this)">
                 <i class="far fa-heart"></i>
               </button>
             </div>
-            <div>
-              <span class="stars">★★★★☆</span> 7.5 |
-              154 orders
-              <span class="free-shipping">Free Shipping</span>
+            <div class="order-info">
+              <span class="stars" style="color: orange;">★★★★☆</span>
+              <span style="color: orange;">7.5</span>
             </div>
-            <h3>Canon Camera EOS 2000, Black 10x zoom</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>GoPro HERO6 4K Action <br>Camera - Black</p>
             <a href="/detail.html" class="details-link">View details</a>
           </div>
         </div>
@@ -1099,18 +1111,19 @@
           <img src="/public/tech/6.jpg" alt="Canon Camera">
           <div class="product-info">
             <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-              <span class="price">$998.00</span>
+              <div>
+                <span class="price">$998.00</span>
+                <span class="old-price">$1128.00</span>
+              </div>
               <button class="like-btn" onclick="toggleLike(this)">
                 <i class="far fa-heart"></i>
               </button>
             </div>
-            <div>
-              <span class="stars">★★★★☆</span> 7.5 |
-              154 orders
-              <span class="free-shipping">Free Shipping</span>
+            <div class="order-info">
+              <span class="stars" style="color: orange;">★★★★☆</span>
+              <span style="color: orange;">7.5</span>
             </div>
-            <h3>Canon Camera EOS 2000, Black 10x zoom</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>GoPro HERO6 4K Action <br>Camera - Black</p>
             <a href="/detail.html" class="details-link">View details</a>
           </div>
         </div>
@@ -1123,13 +1136,11 @@
                 <i class="far fa-heart"></i>
               </button>
             </div>
-            <div>
-              <span class="stars">★★★★☆</span> 7.5 |
-              154 orders
-              <span class="free-shipping">Free Shipping</span>
+            <div class="order-info">
+              <span class="stars" style="color: orange;">★★★★☆</span>
+              <span style="color: orange;">7.5</span>
             </div>
-            <h3>Canon Camera EOS 2000, Black 10x zoom</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>GoPro HERO6 4K Action <br>Camera - Black</p>
             <a href="#" class="details-link">View details</a>
           </div>
         </div>
@@ -1137,18 +1148,19 @@
           <img src="public/tech/7.jpg" alt="Canon Camera">
           <div class="product-info">
             <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-              <span class="price">$998.00</span>
+              <div>
+                <span class="price">$998.00</span>
+                <span class="old-price">$1128.00</span>
+              </div>
               <button class="like-btn" onclick="toggleLike(this)">
                 <i class="far fa-heart"></i>
               </button>
             </div>
-            <div>
-              <span class="stars">★★★★☆</span> 7.5 |
-              154 orders
-              <span class="free-shipping">Free Shipping</span>
+            <div class="order-info">
+              <span class="stars" style="color: orange;">★★★★☆</span>
+              <span style="color: orange;">7.5</span>
             </div>
-            <h3>Canon Camera EOS 2000, Black 10x zoom</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>GoPro HERO6 4K Action <br>Camera - Black</p>
             <a href="#" class="details-link">View details</a>
           </div>
         </div>
@@ -1156,18 +1168,19 @@
           <img src="public/tech/8.jpg" alt="Canon Camera">
           <div class="product-info">
             <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-              <span class="price">$998.00</span>
+              <div>
+                <span class="price">$998.00</span>
+                <span class="old-price">$1128.00</span>
+              </div>
               <button class="like-btn" onclick="toggleLike(this)">
                 <i class="far fa-heart"></i>
               </button>
             </div>
-            <div>
-              <span class="stars">★★★★☆</span> 7.5 |
-              154 orders
-              <span class="free-shipping">Free Shipping</span>
+            <div class="order-info">
+              <span class="stars" style="color: orange;">★★★★☆</span>
+              <span style="color: orange;">7.5</span>
             </div>
-            <h3>Canon Camera EOS 2000, Black 10x zoom</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>GoPro HERO6 4K Action <br>Camera - Black</p>
             <a href="#" class="details-link">View details</a>
           </div>
         </div>
@@ -1180,13 +1193,11 @@
                 <i class="far fa-heart"></i>
               </button>
             </div>
-            <div>
-              <span class="stars">★★★★☆</span> 7.5 |
-               154 orders 
-              <span class="free-shipping">Free Shipping</span>
+            <div class="order-info">
+              <span class="stars" style="color: orange;">★★★★☆</span>
+              <span style="color: orange;">7.5</span>
             </div>
-            <h3>Canon Camera EOS 2000, Black 10x zoom</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>GoPro HERO6 4K Action <br>Camera - Black</p>
             <a href="#" class="details-link">View details</a>
           </div> 
         </div>
@@ -1346,3 +1357,5 @@ color: #999;">Best information about the company goes here But now lorem ipsum i
 </body>
 
 </html>
+
+
